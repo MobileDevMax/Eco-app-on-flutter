@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(EcoApp());
+}
+
+class EcoApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Eco App',
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  final List<String> tips = [
+    "Reduce the use of plastic bags",
+    "Recycle waste: glass, paper, plastic",
+    "Use reusable water bottles",
+    "Practice energy conservation at home",
+    "Use public transportation or ride a bicycle",
+    "Plant trees to improve air quality",
+    "Support local farmers markets",
+    "Reduce meat in your diet",
+    "Choose eco-friendly products",
+    "Use electronic documents instead of paper",
+    "Install energy-saving bulbs",
+    "Reduce your water usage",
+    "Use eco-friendly cleaning products",
+    "Avoid plastic straws and disposable tableware",
+    "Support initiatives for environmental cleanup",
+    "Play an active role in community environmental initiatives",
+    "Teach children to grow plants and care for nature",
+    "Participate in local greening programs",
+    "Buy products in recycled packaging",
+    "Preserve nature by choosing eco-friendly transportation",
+    "Donate old items to charity instead of throwing them away"
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Eco Tips'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, // three items per row
+            childAspectRatio: 1, // item aspect ratio
+            crossAxisSpacing: 10, // horizontal spacing
+            mainAxisSpacing: 10, // vertical spacing
+          ),
+          itemCount: tips.length,
+          itemBuilder: (context, index) {
+            return Card(
+              margin: EdgeInsets.all(0), // removing card margin
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Center(
+                  child: Text(
+                    tips[index],
+                    style: TextStyle(fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
